@@ -1,0 +1,5 @@
+<Directory /usr/share/phpmyadmin>
+    Options FollowSymLinks
+DirectoryIndex index.php
+ 
+

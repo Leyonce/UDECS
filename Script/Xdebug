@@ -1,0 +1,7 @@
+[xdebug]
+;zend_extension=/usr/lib/php5/20090626+lfs/xdebug.so
+xdebug.remote_enable = 1
+xdebug.renite_enable = 1
+xdebug.max_nesting_level = 1000
+xdebug.profiler_enable_trigger = 1
+xdebug.profiler_output_dir = '/var/log'

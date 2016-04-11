@@ -1,0 +1,4 @@
+Include /etc/phpmyadmin/apache.conf
+
+Include \/etc\/phpmyadmin\/apache.conf
+Include /etc/phpmyadmin/apache.conf
