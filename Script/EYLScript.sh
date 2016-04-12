@@ -19,7 +19,7 @@ echo 'Updating...'
 sudo apt-get update
 
 
-#install java
+#install packages
 sudo apt-get install python-software-properties default-jre default-jdk openjdk-7-jre openjdk-7-jdk oracle-java6-installer oracle-java7-installer oracle-java8-installer oracle-java7-set-default mysql-server libapache2-mod-auth-mysql php5-mysql php5 libapache2-mod-php5 php5-mcrypt php5-xdebug php5-curl php5-cgi php5-dev php5-cli postgresql postgresql-contrib libpg-java pgadmin3 git mercurial phpmyadmin -y --force-yes
 clear
 #configure mysql
