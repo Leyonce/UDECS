@@ -47,7 +47,7 @@ setKeyboardLayout(){
 clear
 echo "Seeting keyboardLayout config"
 cp /dev/null /usr/share/X11/xkb/symbols/us
-cat /usr/share/X11/xkb/symbols/us < keyboardConfiguration
+cat /usr/share/X11/xkb/symbols/us < configuration/keyboardConfiguration
 }
 
 configureDatabases(){
@@ -85,9 +85,9 @@ sudo service apache2 restart
 }
 
 developmentConfiguration(){
-source android.sh
-source ionic.sh
-source idempiere.sh
+source development/android.sh
+source development/ionic.sh
+source development/idempiere.sh
 }
 
 intelPowerClamp(){
