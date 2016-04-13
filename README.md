@@ -6,4 +6,6 @@ It installs java,postgres, mysql, ionic and setups environment for IDempiere
 
 Default password of postgres is hardcoded
 Mysql root password is same as the password you enter.
+
+
 ./main.sh
