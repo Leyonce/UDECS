@@ -41,19 +41,14 @@ mysql(){
 #install and set root password of mysql
 echo -e $PASSWORD | sudo -S debconf-set-selections <<< 'mysql-server mysql-server/root_password password $PASSWORD'
 echo -e $PASSWORD | sudo -S debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password $PASSWORD'
-echo -e $PASSWORD | sudo -S apt-get -y install mysql-server phpmyadmin libapache2-mod-auth-mysql php5-mysql php5 libapache2-mod-php5 php5-mcrypt php5-xdebug php5-curl php5-cgi php5-dev php5-cli -y --force-yes
-clear
+echo -e $PASSWORD | sudo -S apt-get -y install mysql-server -y --force-yes
 #configure mysql
 echo 'Mysql config ...'
 echo -e $PASSWORD | sudo -S mysql_install_db;
 echo -e $PASSWORD | sudo -S /usr/bin/mysql_secure_installation
 echo 'End Mysql config ...'
-#install phpmyadmin
-echo 'phpmyadmin config ...'
-echo -e $PASSWORD | sudo -S php5enmod mcrypt
-echo -e $PASSWORD | sudo -S service apache2 restart
-echo 'Include /etc/phpmyadmin/apache.conf' >>/etc/apache2/apache2.conf
 
+echo -e $PASSWORD | sudo -S source development/installphpmyadmin.sh
 }
 
 installPackages(){
@@ -71,7 +66,6 @@ cat /usr/share/X11/xkb/symbols/us < configuration/keyboardConfiguration
 }
 
 
-
 postgres(){
 #install postgres
 echo -e $PASSWORD | sudo -S apt-get install postgresql postgresql-contrib pgadmin3 -y --force-yes
@@ -84,17 +78,6 @@ echo -e $PASSWORD | sudo -S -u postgres psql postgres -c "CREATE EXTENSION admin
 echo -e $PASSWORD | sudo -S sed -i 's/local   all             postgres                                peer/local   all             postgres                                md5/' /etc/postgresql/9.5/main/pg_hba.conf
 
 echo -e $PASSWORD | sudo -S /etc/init.d/postgresql reload
-}
-
-configurePHP(){
-#configure php5
-echo 'Php5 config ...'
-sed -i 's/DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm/DirectoryIndex index.php index.html index.cgi index.pl index.php index.xhtml index.htm/' /etc/apache2/mods-enabled/dir.conf
-
-cat Xdebug >> /etc/php5/cli/php.ini
-
-echo 'restarting apache server'
-echo -e $PASSWORD | sudo -S service apache2 restart
 }
 
 developmentConfiguration(){
@@ -117,7 +100,6 @@ update
 installPackages
 mysql
 postgres
-configurePHP
 developmentConfiguration
 intel_powerclamp
 #else my_pass is empty
