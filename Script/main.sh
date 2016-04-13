@@ -1,8 +1,8 @@
 #!/bin/bash
 # Ubuntu Configuration script
 # This is the main script that will call all the other files that I might have in the future.
-# It installs my defaults java, postgres, php, mysql.
-# Afterwards it calls on secondary configuration modules like that for Idempiere, Drupal, Ionic 
+# It installs my defaults java, postgres, mysql.
+# Afterwards it calls on secondary configuration modules like that for Idempiere, Ionic 
 #Written by Eyog Yvon Léonce
 clear
 echo '#------------------------------------#'
