@@ -60,9 +60,9 @@ clear
 setKeyboardLayout(){
 #Set this changes the keyboard layout to match my hp envy
 clear
-echo "Seeting keyboardLayout config"
-cp /dev/null /usr/share/X11/xkb/symbols/us
-cat /usr/share/X11/xkb/symbols/us < configuration/keyboardConfiguration
+echo "Setting keyboardLayout config"
+echo -e $PASSWORD | sudo -S cp /dev/null /usr/share/X11/xkb/symbols/us
+echo -e $PASSWORD | sudo -S cp configuration/keyboardConfiguration /usr/share/X11/xkb/symbols/us 
 }
 
 
